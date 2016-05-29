@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>打分</title>
+<style>
+*{margin:0;padding:0;list-style:none;}
+#ul1{width:308px; margin:30px auto;}
+#ul1 li{ float: left; width: 28px; height: 30px; background: url(images/star.gif) no-repeat;}
+#ul1 li.active,#ul1 li.center{ background-position:0 -29px;}
+</style>
+<script>
+window.onload = function(){
+	var oSpan = document.getElementById("s1");
+	var oUl = document.getElementById("ul1");
+	var aLi = oUl.getElementsByTagName("li");
+	var len = aLi.length; 
+	var center = 5;
+	
+	for(var i = 0; i < aLi.length; i++){
+		(function(index){
+			aLi[i].onmouseover = function(){
+				oSpan.innerHTML = index - center;
+				
+				// i [index,5) (5,index]
+				for(var i = 0; i < aLi.length; i++){
+					if((i >= index && i < 5) || (i > 5 && i <= index) ){
+						aLi[i].className = "active";
+						
+					} else {
+						aLi[i].className = "";	
+					}
+				}
+									
+			};
+
+			aLi[i].onclick = function(){
+				alert("得"+(index - center)+"分")
+			};
+		})(i);
+		
+
+	}
+	
+ 
+};
+</script>
+</head>
+
+<body>
+<ul id="ul1">
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li class="center"></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+</ul>
+<span id="s1">得了多少分</span>
+</body>
+</html>

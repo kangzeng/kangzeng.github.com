@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>彩票</title>
+<style>
+body{ background: #000;  }
+div{margin:100px auto;font-size: 80px;text-align: center}
+span{color:red; display:inline-block;}
+i{color:#36F; font-style:normal; padding-left:5px; }
+input{position: absolute; margin-left: -50px;left: 50%;top: 250px;width: 120px;height:45px;font-size: 20px;border-radius: 10px;}
+
+
+</style>
+<script>
+
+function rnd(n,m){
+    
+    return parseInt(Math.random()*(m-n) + n);
+}
+function fillZero(n){
+    return n<10?'0'+n:n;
+}
+function findInArr(arr,n){
+    for(var i = 0; i < arr.length; i++){
+        if(arr[i] == n){//找到了
+            return true;
+        }
+    }
+    //没找到
+    return false;
+}
+window.onload=function(){
+    
+    var oBtn=document.getElementById("btn");
+    var oTxt=document.getElementById("txt");
+    var arr2=[];
+    var arr3=[];
+    var oSpan=document.getElementById("span");
+    var oI=document.getElementById("i")
+    var timer=null;
+    
+    function lottery(){
+            
+            while(arr2.length<6){
+                var num2=fillZero(parseInt(rnd(1,17)));
+                var num=fillZero(parseInt(rnd(1,34)));
+                    if(findInArr(arr2,num)==false){
+                        arr2.push(num);
+                    }
+                
+            }
+        // if(findInArr(arr2,num2)==false){
+        //     arr3.push(num2);
+        // }
+        arr3.push(num2);
+        oSpan.innerHTML=arr2;
+        oI.innerHTML=arr3;
+        arr2=[];
+        arr3=[]
+    
+    }   
+    
+    
+    var bClick = false;    
+    oBtn.onclick=function(){
+        if(bClick == true){//被点击了
+            return ;
+        }
+        bClick = true;
+        timer=setInterval(lottery,30);
+        lottery();
+        oSpan.innerHTML=arr2;
+        oI.innerHTML=arr3;
+        arr2=[];
+        arr3=[];
+        setTimeout(function(){
+            bClick = false;
+            clearInterval(timer);
+           
+        },500)
+    };
+    
+    
+        
+};
+
+</script>
+</head>
+<body>
+    <input id="btn" type="button" value="祝你好运">
+    <div id="txt">
+        <span id="span">12,30,06,18,29,03</span>
+        <i id="i">05</i>
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>圆周运动</title>
+<style>
+body{ background: #000; }
+#div1{ position:relative;width:300px; height:300px; border:1px solid yellow; margin:100px auto; border-radius:50%;}
+#div1 span{ position:absolute;left:50%;top:0; margin:-15px;width:30px; height:30px;border-radius:50%; background:red; }
+</style>
+<script>
+function d2a(n){
+	return n*Math.PI/180;
+}
+
+window.onload = function(){
+	var oDiv = document.getElementById("div1");
+	
+	var R = oDiv.offsetWidth/2;
+	
+	var N = 12;
+
+	
+	//创建
+	for(var i = 0; i < N; i++){
+		var oSpan = document.createElement("span");
+		oDiv.appendChild(oSpan);
+	}
+	
+	
+	var aSpan = oDiv.children;
+	//改变位置
+	var bSingle = true;
+	document.onclick = function(){
+		
+		if(bSingle){
+			for(var i = 0; i < N; i++){
+				var a = 360/N*i;
+				move(aSpan[i],a);
+			}
+		} else {
+			for(var i = 0; i < N; i++){ 
+				move(aSpan[i],0);
+			} 
+		}
+		bSingle = !bSingle;
+	};
+	
+	
+	function move(obj,iTarget){
+		var start = obj.a || 0;
+		var dis = iTarget - start;
+		var time = 1000;
+		var count = Math.round(time/30);
+		var n = 0;
+		
+		clearInterval(obj.timer);
+		obj.timer = setInterval(function(){
+			n++;
+			
+			var a = 1 - n/count;
+			var cur = start + dis*(1-a*a*a);
+			
+			obj.a = cur;
+			
+			obj.style.left = R + Math.sin(d2a(cur))*R + "px";
+			obj.style.top  = R - Math.cos(d2a(cur))*R + "px";
+			
+			if(n == count){
+				clearInterval(obj.timer);
+			}
+		},30);
+			
+	}
+	
+	
+	
+	
+};
+</script>
+</head>
+
+<body>
+<div id="div1">
+</div>
+</body>
+</html>

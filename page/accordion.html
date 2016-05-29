@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>accordion</title>
+<style>
+*{margin:0;padding:0;list-style:none;}
+body{ background: #000; }
+#ul1{ position:relative;width:840px; height:305px;  margin:30px auto; overflow:hidden;}
+#ul1 li{ position:absolute;left:0;top:0;width:840px; height:100%;}
+#ul1 li img{width:100%; height:100%;} 
+#ul1 li span{ position:absolute;left:0;top:0;width:20px; height:100%; line-height:305px; text-align:center;}
+</style>
+<script src="js/move.js"></script>
+<script>
+
+window.onload = function(){
+	var oUl = document.getElementById("ul1");
+	var aLi = oUl.children;
+	var len = aLi.length; 
+	
+	//算ul宽度  840 + 20*(len - 1);
+ 	oUl.style.width = 840 + 20*(len - 1) + "px";
+	
+	//li定位 840+20*(n-1)
+	for(var i = 1; i < len; i++){
+		aLi[i].style.left = 840 + 20*(i - 1) + "px"; 
+	}
+	
+	//添加事件
+	for(var i = 0; i < len; i++){
+		
+		(function(index){
+			aLi[i].onmouseover = function(){
+				// left --> oLi  20*n
+				for(var i = 0; i < len; i++){
+					if(i <= index){
+						move(aLi[i],{left:i*20});
+					} else {
+						move(aLi[i],{left:840 + 20*(i - 1)});
+					}
+				}
+			};
+		})(i);
+	}
+	
+	
+};
+
+</script>
+</head>
+
+<body>
+
+<ul id="ul1">
+	<li><img src="images/01.jpg" /><span style="background:#5EDE30;">1</span></li>
+	<li><img src="images/02.jpg" /><span style="background:#05EE3D;">2</span></li>
+	<li><img src="images/03.jpg" /><span style="background:#EE35D0;">3</span></li>
+	<li><img src="images/01.jpg" /><span style="background:#E5E3D0;">4</span></li>
+	<li><img src="images/02.jpg" /><span style="background:#05EE3D;">5</span></li>
+	<li><img src="images/03.jpg" /><span style="background:#EE35D0;">6</span></li>
+</ul>
+
+</body>
+</html>
