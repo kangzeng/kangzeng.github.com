@@ -11,46 +11,83 @@ img{border:none;outline:none;}
 .fl{float: left;}
 .fr{float: right;}
 
-
-/*第一页*/
-.box{ position: relative; width: 100%;}
-.pagebox{position:absolute; left:0; top:0; width: 100%;}
-.page1{  height: 660px; position: relative; width: 100%; background:url(../images/1.jpg) no-repeat;  -webkit-background-size: cover; background-size: cover;  }
-
-/*导航*/
-.navleft h1 { float: left; margin-top: 20px; margin-left: 50px;  }
-.navleft h1 a{  text-shadow: 0 0 20px #f0f; color: #f0f;}
-.navleft h1 a:hover{  text-shadow: 0 0 20px #b0d01d; color: #b0d01d; }
-.navright{  float: right; width: 400px; margin: 20px; }
-.navright ul li{ float:left;  margin-left: 40px; font-weight: bold;  }
-.navright li a:hover{color:#9a811c; }
+/*背景*/
+.box{ position:relative; overflow:hidden;}
+.page{position:absolute;left:0;top:0; width:100%;height:100%;}
+.page1,.page2,.page3,.page4,.page5{width:100%;height:100%; background-size:cover; -webkit-background-size:cover; overflow:hidden; background-repeat:no-repeat; position:relative; }
+.page1{background-image:url(../images/1.jpg);}
+.page2{background-image:url(../images/2.jpg);}
+.page3{background-image:url(../images/3.jpg);}
+.page4{background-image:url(../images/4.jpg);}
+.page5{background-image:url(../images/5.jpg);}
 
 
-/*打字机*/
+#nav{width:30px;height:100px; position:absolute; right:0; top:50%; margin-top:-50px}
+#nav ol li{width:20px; height:20px; border-radius: 50%; margin-bottom:5px; background:#666; border:3px solid #fff; cursor:pointer;}
+#nav ol li.active{background:#eb11e3;}
+
+/*logo*/
+.yan{position: fixed;top: 50px;left: 100px;font-size: 30px;line-height: 50px; color: #fff;animation:aboutme 1s linear;}
+
+.yan span{display: inline-block; width: 50px;height: 50px;text-align: center; background:#fff;border-radius: 50%;color:#000;}
+@-webkit-keyframes aboutme{
+    0% { 
+        transform: scale(1,-1);
+    }
+    50% { 
+        transform: scale(1,-1);
+    }
+    100% { 
+        transform: scale(1,1);
+    }   
+}
+@keyframes aboutme{
+    0% { 
+        transform: scale(1,-1);
+    }
+    50% { 
+        transform: scale(1,-1);
+    }
+    100% { 
+        transform: scale(1,1);
+    }   
+}
+
+/*第一页打字机*/
 .intr-word{position:absolute;padding-top:50px;width: 600px; left: 50%;margin-left:-300px;top:200px;line-height: 50px;font-size: 26px;text-indent:2rem;text-align: justify; font-family: 'Microsoft YaHei'; color: #fff;animation:bg1 1s linear; }
 .writeword span{opacity:0; filter: alpha(opacity:0); color:rgba(0,0,0,0); text-shadow:0 0 10px #fff;  -webkit-transition:0.3s all ease;transition:0.3s all ease;}
 .writeword span.active{opacity:1; filter: alpha(opacity:100); text-shadow:0 0 0 #fff; color: #210748;}
 
 
-/*第二页*/
-.page2{  position: relative; height: 660px; width: 100%; background:url(../images/2.jpg) no-repeat;  -webkit-background-size: cover; background-size: cover;  }
+
+// 第二页
+.page2{ position: relative;}
+#ul1{position:relative;width:133px; height:200px; margin:150px auto; background:none;
+    transform-style:preserve-3d;
+    transform:perspective(800px) rotateX(-15deg) rotateY(0deg); 
+}
+#ul1 li{ position:absolute;left:0;top:0;width:100%; height:100%;
+    transition:1s all ease;
+    transform:rotateY(0deg) translateZ(0px);
+    border-radius:10px; overflow:hidden; box-shadow:0 0 10px 2px #fff;
+    -webkit-box-reflect:below 10px -webkit-linear-gradient(rgba(0,0,0,0) 40% ,rgba(0,0,0,0.5) );
+    background:yellow; line-height:200px; text-align:center; font-size:30px;
+}
+#ul1 li img{width:100%;} 
+
+
+
+// 第二页
+.page3{ position: relative;}
 #ul12{ position: absolute; left: 50%; top: 50%; margin-left: -255px; margin-top: -255px;width:510px; height: 510px;}
 #ul12 li{float:left; position:relative;width:150px; height:150px; border-radius: 20%; background:#ccc; line-height:150px; text-align:center;font-size:20px; overflow:hidden; margin:10px; }
 #ul12 li span{ position:absolute;left:-150px;top:0;width:100%; height:100%; border-radius: 20%; background:rgba(154,52,183,0.6); font-weight: bold; font-size: 30px;}
-.change{ position: absolute; bottom: 10px; left: 50%; margin-left: -30px; width: 60px; height: 60px; border:4px solid rgba(172,6,249,0.6);  text-align:center; line-height: 60px; font-weight:bold; animation: toopacity 1s infinite; border-radius:50%;}
-.change a{ /*color: #2f200d;*/ color: red; font-size: 28px; font-weight: bold;}
-.change:hover{ transform:rotate(360deg); border-radius:50%;}
-@keyframes toopacity{
-    0%{ opacity:1; }
-    80%{  opacity:0.7;}
-    100%{ opacity:1; }
-    }
-
 
 #look{ position: absolute; left: 50%; margin-left: -130px; margin-top: 20px; width: 600px; height: 60px; color: red; font-size: 40px; font-weight: bold; }
 
-/*第三页*/
-.page3{  height: 660px; position: relative; width: 100%; background:url(../images/3.jpg) no-repeat;  -webkit-background-size: cover; background-size: cover;  }
+
+// 第四页
+.page4{ position: relative;}
 .masage{ position: absolute; left: 50%; top: 50%; margin-left:-150px; margin-top: -200px; width: 300px; height: 400px; background: #000; opacity: 0.7; filter: alpha(opacity:70); color:#c4b2c4; font-weight: bold; border-radius: 10%; transition:1s all ease; }
 .masage:hover{transform:rotate(360deg);/* transform:scale(1.5,1.5);*/}
 .masage ul{ padding: 50px; }
@@ -60,33 +97,11 @@ img{border:none;outline:none;}
 
 
 
-/*top*/
-#top{ position: fixed; _position: absolute; right: 0; bottom: 0; width: 119px; height: 100px; -webkit-animation: totop 1s infinite;
--moz-animation: totop 1s infinite; -ms-animation: totop 1s infinite;
-animation: totop 1s infinite; }
-@-webkit-keyframes totop{
-    0%{ bottom:0; }
-    80%{  opacity:0.7;}
-    100%{ bottom:10px; }
-    }
-@keyframes totop{
-    0%{ bottom:0; }
-    80%{  opacity:0.7;}
-    100%{ bottom:10px; }
-    }
-@-moz-keyframes totop{
-    0%{ bottom:0; }
-    80%{  opacity:0.7;}
-    100%{ bottom:10px; }
-    }
-@-ms-keyframes totop{
-    0%{ bottom:0; }
-    80%{  opacity:0.7;}
-    100%{ bottom:10px; }
-    }
 
 
 
-/*右侧*/
-/*#olli{ position: absolute; right: 0; top: 200px; }*/
+
+
+
+
 

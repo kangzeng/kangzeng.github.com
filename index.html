@@ -1,38 +1,38 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>Document</title>
-<link rel="stylesheet" href="css/index.css" />
-<script src="js/move.js"></script>
-<script src = "js/main.js"></script>
+    <meta charset="UTF-8">
+    <title>myweb</title>
+<link rel="stylesheet" type="text/css" href="css/index.css"/>
+<script src = "js/index.js"></script>
+<script src = "js/move.js"></script>
+
 </head>
 <body>
-<div id="box" class = "box">
-    <div id="pagebox" class="pagebox">
-        <!-- 第一页开始 -->
-        <div class = "pagebox page1 clearfix" id= "page1">
-            <!-- 导航 -->
-            <div class ="nav clearfix">
-                <div class="navleft ">
-                    <h1><a href="javascript:;">L&nbsp;u&nbsp;c&nbsp;k&nbsp;y</a></h1>
-                </div>
-                <div class="navright">
-                    <ul class="clearfix">
-                        <li><a href="#page1">首页</a></li>
-                        <li><a href="#page2">效果展示</a></li>
-                        <li><a href="#page3">联系我</a></li>
-                    </ul>        
-                </div>
-            </div>
+<div class = "box" id="box">
+   
+    <div class="page" id="page">
+        <div class="page page1">
             <div class="intr-word pa">
                 <p id='writeword' class='writeword'></p>
-            </div>
-
+            </div> 
         </div>
-        <!-- 第一页结束 -->
-        <!-- 第二页 -->
-        <div id="page2" class = " pagebox page2 clearfix">
+        <div class="page page2" id="page2">
+            <ul id="ul1">
+                <li><img src="images/img/1.jpg"/></li>
+                <li><img src="images/img/2.jpg"/></li>
+                <li><img src="images/img/3.jpg"/></li>
+                <li><img src="images/img/4.jpg"/></li>
+                <li><img src="images/img/5.jpg"/></li>
+                <li><img src="images/img/6.jpg"/></li>
+                <li><img src="images/img/7.jpg"/></li>
+                <li><img src="images/img/8.jpg"/></li>
+                <li><img src="images/img/9.jpg"/></li>
+                <li><img src="images/img/10.jpg"/></li>
+                <li><img src="images/img/11.jpg"/></li>
+            </ul>
+        </div>
+        <div class="page page3">
             <div id = "look">常见效果展示</div>
             <ul id="ul12">
                 <li>
@@ -57,19 +57,18 @@
                     <a href="page/waterfall.html" target="_blank"><img src="images/07.jpg"/><span>瀑布流</span></a>
                 </li>
                 <li>
-                    <a href="page/circular.html" target="_blank"><img src="images/08.jpg"/><span>圆周运动</span></a>
+                    <a href="page/clock.html" target="_blank"><img src="images/08.jpg"/><span>时钟</span></a>
                 </li>
                 <li>
-                    <a href="page/drag.html" target="_blank"><img src="images/09.jpg"/><span>动起来</span></a>
+                    <a href="page/drag.html" target="_blank"><img src="images/09.jpg"/><span>鼠标拖</span></a>
                 </li>
             </ul>
 
-            <div id = "change" class="change">
-                <a href="javascript:;">收放</a>
-            </div>
+           
+
+
         </div>
-        <!-- 第三页 -->
-        <div class = " pagebox page3 clearfix" id="page3">
+        <div class="page page4">
             <div id="masage" class ="masage">
                 <ul>
                     <li>姓名:曾凤妍</li>
@@ -81,24 +80,25 @@
                     <li style="margin-top:20px;">&nbsp;&nbsp;&nbsp;&nbsp;谢谢欣赏</li>
                 </ul>
 
-            </div>
-            
+            </div>    
+             
         </div>
-
-
-        <!-- top -->
-        <div id="top">
-            <a href="javascript:;"><img src="images/top.png"/></a>
-        </div>
+    </div>
+    <div id = "nav">
+        <ol id = "nav_ol">
+            <li class="active "></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
 
     </div>
+
     
-    <!-- <ol id = "olli">
-        <li></a><img src="images/dot.png" alt="" /></li>
-        <li></a><img src="images/dot.png" alt="" /></li>
-        <li></a><img src="images/dot.png" alt="" /></li>
-    </ol> -->
-    
+    <!-- 左上角logo -->
+    <div class="yan" id='yan'>
+        <span>Z</span>&nbsp;Y&nbsp;A&nbsp;N
+    </div>
 
 </div>    
 </body>

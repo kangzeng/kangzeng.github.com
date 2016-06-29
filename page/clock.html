@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+#div1{ position:relative;width:300px; height:300px; border:1px solid #000; border-radius:50%; box-shadow:1px 2px 3px #000;}
+#div1 .cap{position:absolute;left:50%;top:50%; margin:-15px;width:30px; height:30px; background:#000; border-radius:50%;}
+
+#div1 .hour,#div1 .min,#div1 .sec{
+	position:absolute;left:50%;top:50%;  background:#000;
+	transform-origin:center bottom;
+}
+
+#div1 .hour{ margin-left:-5px;  margin-top:-80px;width:10px; height:80px;}
+#div1 .min{ margin-left:-4px;  margin-top:-100px;width:8px; height:100px;}
+#div1 .sec{ margin-left:-1px;  margin-top:-120px;width:2px; height:120px; background:red;}
+
+#div1 span{ position:absolute;left:50%; margin-left:-2px;top:0;width:4px; height:8px; background:#000; transform-origin:center 150px;}
+
+#div1 span.on{  height:12px;}
+#div1 span em{ position:absolute;left:50%; margin-left:-20px;top:12px; width:40px; font-style:normal; text-align:center;}
+
+</style>
+<script>
+window.onload = function(){
+	var oDiv = document.getElementById("div1");
+	var oH   = oDiv.querySelector(".hour");
+	var oM   = oDiv.querySelector(".min");
+	var oS   = oDiv.querySelector(".sec");
+	
+	clock();
+	setInterval(clock,30);
+	function clock(){
+		var oDate = new Date();
+		var iH = oDate.getHours();
+		var iM = oDate.getMinutes();
+		var iS = oDate.getSeconds();
+		var iMs = oDate.getMilliseconds();
+		
+		oH.style.transform = "rotate("+(iH*30 + iM/60*30)+"deg)";
+		oM.style.transform = "rotate("+(iM*6+ iS/60*6)+"deg)";
+		oS.style.transform = "rotate("+(iS*6+ iMs/1000*6)+"deg)";
+	}
+	
+	for(var i = 0; i < 60; i++){
+		var oSpan = document.createElement("span");
+		oDiv.appendChild(oSpan);
+		
+		if(i%5 == 0){
+			oSpan.classList.add("on");
+			oSpan.innerHTML = "<em>"+(i==0?12:i/5)+"<\/em>";
+			oSpan.children[0].style.transform = "rotate("+-i*6+"deg)";
+		}
+		oSpan.style.transform = "rotate("+i*6+"deg)";
+	}
+	
+};
+</script>
+</head>
+
+<body>
+<div id="div1">
+	<div class="hour"></div>
+	<div class="min"></div>
+	<div class="sec"></div>
+	<div class="cap"></div>
+    <!--<span><em>12</em></span>-->
+</div>
+</body>
+</html>
